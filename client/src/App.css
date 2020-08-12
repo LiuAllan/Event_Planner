@@ -65,7 +65,8 @@ li i:hover ,a:hover{
 .app-container{
   max-width: 90rem;
   margin: auto;
-  }
+  padding: 1rem;
+}
  
   
 .main {
@@ -74,6 +75,7 @@ li i:hover ,a:hover{
   align-items: flex-end
 
 }
+
 
 
 /* ****************** GuestForm************** */
@@ -142,7 +144,7 @@ form {
 
  
 
-   /* ************* toggel *************************** */
+   /* ************* toggle *************************** */
 
    
 .switch {
@@ -211,8 +213,8 @@ input:checked + .slider:before {
 /************************************************************************* */
 .lead{
   color:var(--primary-color);
-  margin-bottom:2.5rem ;
-  margin-top:0.7rem
+  margin-bottom: 0.5rem ;
+  margin-top:0.5rem
 }
 
 .search{
@@ -392,7 +394,7 @@ cursor: pointer;
 .contact {
   display: flex;
   align-items: center
-      }
+}
    .contact p {
      font-weight: bold;
    padding: 0 0.5rem
@@ -424,7 +426,7 @@ cursor: pointer;
   }
   .question a {
     color: var(--primary-color);
-      }
+  }
   .danger {
     background-color: rgb(207, 58, 58);
     width: 100%;
@@ -452,10 +454,10 @@ cursor: pointer;
     background: rgb(107, 161, 197)
   }
  @media(max-width: 1300px){
-         .main{
-            justify-content: space-between;
+  .main{
+         /*   justify-content: space-between;
             width:95%;
-            margin:auto
+            margin:auto*/
    }
    .guests {
     grid-template-columns: repeat(3, 1fr);
@@ -464,41 +466,42 @@ cursor: pointer;
   
  }
 
- @media(max-width: 1100px){
+ @media(max-width: 1100px) {
   .register , .login {
     width: 40%
   }
   .main{
     flex-wrap:wrap;
     justify-content: space-around
-}
-table  {
-  flex:1;
-  margin: 0 1rem;
-}
-.invite-section{
-  flex:2;
-  padding: 1rem;
-  margin: 0 1rem;
-}
-.toggle{
-  display: flex;
-  align-items: baseline;
   }
-  .toggle p{
-    margin-left: 0.7rem
+  table  {
+    flex:1;
+    margin: 0 1rem;
   }
+  .invite-section{
+    flex:2;
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+  .toggle{
+    display: flex;
+    align-items: baseline;
+    }
+    .toggle p{
+      margin-left: 0.7rem
+    }
 
-.filter{
-  display: flex;
-  justify-content: space-between;
-  padding: 0 3rem;
-  align-items: baseline;
-  margin-top:1rem;
-  width: 100%;
-  flex-wrap: wrap;
-  order:3
-}
+  /*.filter{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3rem;
+    align-items: baseline;
+    margin-top:1rem;
+    width: 100%;
+    flex-wrap: wrap;
+    order:3
+  }*/
+
 .guests {
 margin-top:0;
 }
@@ -525,7 +528,7 @@ margin-top:0;
     .register , .login {
       width: 70%
     }
-  .main , .filter , .guests{
+  .main, .guests{
     display: flex;
     flex-direction: column;
     justify-content: center;

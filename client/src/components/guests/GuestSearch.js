@@ -18,7 +18,7 @@ const GuestSearch = () => {
 	
   return (
     <div>
-      <input ref={searchValue} onChange={handleChange} type="text" className="search" placeholder=" Search Guest by name ..." />
+      <input ref={searchValue} onChange={handleChange} type="text" className="search" placeholder=" Search Guest by name..." />
       <i className="fas fa-search search-icon" />
     </div>
   )
