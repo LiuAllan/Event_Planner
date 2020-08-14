@@ -43,7 +43,7 @@ router.
 				// JSON web token
 				const payload = {
 					user: {
-						id: user._id
+						id: user.id
 					}
 				}
 				jwt.sign(payload, process.env.SECRET, { expiresIn: 3600 }, (err, token) => {

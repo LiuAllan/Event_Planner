@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 
-// Middleware for "auth-token"
+// Middleware for "auth-token" used for PROTECT ROUTES
 // A valid User passes a non-expired token into header "auth-token" which gets decoded and authorizes access
 const auth = (req, res, next) => {
 	const token = req.header('auth-token');
