@@ -2,11 +2,13 @@ import React, {useReducer} from 'react';
 import axios from 'axios';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
+import setToken from '../../utils/setToken';
 
 
 const initialState = {
 	userAuth: null,
-	errors: null
+	errors: null,
+	user: null,
 }
 
 const AuthState = ({children}) => {
@@ -14,6 +16,27 @@ const AuthState = ({children}) => {
 	const [state, dispatch] = useReducer(authReducer, initialState);
 
 	// ACTIONS
+
+	// Get User info
+	const getUser = async () => {
+		if(localStorage.token) {
+			setToken(localStorage.token);
+		}
+		// request to server. We have 'auth-token' as header
+		try {
+			const res = await axios.get('/auth');
+			dispatch({
+				type: 'SET_USER',
+				payload: res.data
+			})
+		}
+		catch(err) {
+			dispatch({
+				type: 'AUTH_ERROR',
+				payload: err.response.data
+			})
+		}
+	}
 
 	// Register user
 	const registerUser = async (userData) => {
@@ -62,6 +85,13 @@ const AuthState = ({children}) => {
 		}
 	}
 
+	// LOGOUT user
+	const logoutUser = () => {
+		dispatch({
+			type: 'LOGOUT'
+		})
+	}
+
 	// Errors
 	const setError = error => {
 		dispatch({
@@ -82,10 +112,13 @@ const AuthState = ({children}) => {
 			value={{
 				userAuth: state.userAuth,
 				errors: state.errors,
+				user: state.user,
 				registerUser,
 				loginUser,
+				logoutUser,
 				setError,
 				clearError,
+				getUser,
 			}}
 		>
 			{children}

@@ -9,6 +9,10 @@ const guestSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	phone: {
+		type: String,
+		required: true,
+	},
 	dietary: {
 		type: String,
 		required: true,

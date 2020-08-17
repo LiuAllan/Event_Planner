@@ -8,6 +8,14 @@ const GuestForm = () => {
     if(edit !== null) {
       setGuest(edit)
     }
+    else {
+      setGuest({
+        name: '',
+        phone: '',
+        diet: 'Non-Veg',
+      })
+    }
+
   }, [edit])
 
   // initial state
@@ -30,19 +38,19 @@ const GuestForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if(edit !== null) {
-      updateGuest(guest);
-      clearEdit();
-    }
-    else {
+    if (edit === null) {
       addGuest(guest);
-      // reset to default values after submitting
-      setGuest({
-        name: '',
-        phone: '',
-        dietary: 'Non-Veg'
-      })
+
+    } 
+    else {
+      updateGuest(guest)
+      clearEdit()
     }
+    setGuest({
+      name: '',
+      phone: '',
+      diet: 'Non-Veg',
+    })
   }
 
   return (

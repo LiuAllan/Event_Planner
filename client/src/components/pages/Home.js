@@ -1,12 +1,23 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+// Components
 import GuestForm from '../guests/GuestForm'
 import GuestCounter from '../guests/GuestCounter'
 import GuestFilter from '../guests/GuestFilter'
 import GuestSearch from '../guests/GuestSearch'
 import Guests from '../guests/Guests'
 import Grid from '@material-ui/core/Grid';
+// Context
+import AuthContext from '../../context/authContext/authContext';
 
 const Home = () => {
+
+  const { getUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    getUser();
+    //eslint-disable-next-line
+  }, [])
+
   return (
     <div className="app-container">
     <Grid container justify="center" spacing={1}>
@@ -28,7 +39,6 @@ const Home = () => {
 
         </Grid>
       </div>
-
       <Guests />
     </div>
   )

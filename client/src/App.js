@@ -8,7 +8,13 @@ import GuestState from './context/guestContext/GuestState';
 import AuthState from './context/authContext/AuthState';
 import Register from './components/pages/Register';
 import Login from './components/pages/Login';
+import PrivateRoutes from './components/pages/routes/PrivateRoutes';
+import setToken from './utils/setToken';
 
+// Check if token is in local storage. Then pass the token as headers to back-end when retrieving data.
+if(localStorage.token) {
+	setToken(localStorage.token);
+}
 
 const App = () => {
   return (
@@ -18,7 +24,7 @@ const App = () => {
 		      <div>
 		        <Navbar />
 		       	<Switch>
-		       		<Route exact path="/" component={Home} />
+		       		<PrivateRoutes exact path="/" component={Home} />
 		       		<Route exact path="/register" component={Register} />
 		       		<Route exact path="/login" component={Login} />
 		       	</Switch>

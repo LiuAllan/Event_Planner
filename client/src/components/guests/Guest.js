@@ -4,12 +4,12 @@ import GuestContext from '../../context/guestContext/guestContext';
 const Guest = ({guest}) => {
   const { removeGuest, updateGuest, editGuest } = useContext(GuestContext);
 
-  const { id, name, phone, dietary, isConfirmed } = guest;
+  const { _id, name, phone, dietary, isConfirmed } = guest;
   // console.log(name);
 
   const handleRemove = () => {
-    console.log(id);
-    removeGuest(id);
+    console.log(_id);
+    removeGuest(_id);
   }
 
   const handleIsConfirmed = () => {

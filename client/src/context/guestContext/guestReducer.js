@@ -1,4 +1,4 @@
-import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT } from '../types';
+import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR } from '../types';
 
 export default (state, {type, payload}) => {
 	switch(type) {
@@ -11,20 +11,20 @@ export default (state, {type, payload}) => {
 			return {
 				...state,
 				// Obtain all guests that is NOT the id
-				guests: state.guests.filter(guest => guest.id !== payload)
+				guests: state.guests.filter(guest => guest._id !== payload)
 			}
 		case UPDATE_GUEST:
 			return {
 				...state,
-				guests: state.guests.map(guest => guest.id === payload.id ? payload : guest)
+				guests: state.guests.map(guest => guest._id === payload._id ? payload : guest)
 			}
 		case EDIT_GUEST:
 			return {
 				...state,
 				edit: payload,
 			}
-
 		case CLEAR_EDIT:
+			console.log(state);
 			return {
 				...state,
 				edit: null
@@ -44,6 +44,17 @@ export default (state, {type, payload}) => {
 			return {
 				...state,
 				search: null
+			}
+		case GET_GUESTS:
+			return {
+				...state,
+				guests: payload
+			}
+		case GUESTS_ERROR:
+			return {
+				...state,
+				guests: [],
+				errors: payload
 			}
 		default:
 			return state;
