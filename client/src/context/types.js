@@ -8,3 +8,4 @@ export const GET_GUESTS = 'GET_GUESTS';
 export const GUESTS_ERROR = 'GUESTS_ERROR';
 export const EDIT_GUEST = 'EDIT_GUEST';
 export const CLEAR_EDIT = 'CLEAR_EDIT';
+export const CLEAR_GUESTS = 'CLEAR_GUESTS';

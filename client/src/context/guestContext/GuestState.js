@@ -1,15 +1,16 @@
 import React, { useReducer } from 'react';
 import guestContext from './guestContext';
 import guestReducer from './guestReducer';
-import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR } from '../types';
+import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR, CLEAR_GUESTS } from '../types';
 import axios from 'axios';
+import setToken from '../../utils/setToken';
 
 const initialState = {
 	filterGuest: false,
 	search: null,
 	edit: null,
 	guests: [],
-	errors: null
+	errors: null,
 }
 
 const GuestState = ({ children }) => {
@@ -27,8 +28,8 @@ const GuestState = ({ children }) => {
 			}
 		}
 		try {
-			const res = await axios.post('/guests', guest, config)
 			console.log(guest);
+			const res = await axios.post('/guests', guest, config)
 			console.log(res);
 			dispatch({
 				type: ADD_GUEST,
@@ -44,6 +45,10 @@ const GuestState = ({ children }) => {
 	}
 
 	const getGuests = async () => {
+		// Send the token in localStorage as a header
+		if(localStorage.token) {
+			setToken(localStorage.token)
+		}
 		try {
 			const res = await axios.get('/guests');
 			dispatch({
@@ -95,7 +100,12 @@ const GuestState = ({ children }) => {
 				payload: err.response.data
 			});
 		}
-	
+	}
+
+	const clearGuests = () => {
+		dispatch({
+			type: CLEAR_GUESTS
+		})
 	}
 
 	const editGuest = (guest) => {
@@ -130,6 +140,7 @@ const GuestState = ({ children }) => {
 		})
 	}
 
+
 	return(
 		<guestContext.Provider
 			value={{
@@ -145,7 +156,9 @@ const GuestState = ({ children }) => {
 				updateGuest,
 				editGuest,
 				clearEdit,
-				getGuests
+				getGuests,
+				clearGuests,
+
 			}}
 		>
 		{ children }

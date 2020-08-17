@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../context/authContext/authContext';
+import GuestContext from '../../context/guestContext/guestContext';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
   const { logoutUser, clearError, userAuth, user } = useContext(AuthContext);
+  const { clearGuests } = useContext(GuestContext);
 
   const handleLogout = () => {
       logoutUser();
       clearError();
+      clearGuests();
   }
 
 

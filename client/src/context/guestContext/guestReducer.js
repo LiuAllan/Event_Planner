@@ -1,4 +1,4 @@
-import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR } from '../types';
+import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR, CLEAR_GUESTS } from '../types';
 
 export default (state, {type, payload}) => {
 	switch(type) {
@@ -24,7 +24,6 @@ export default (state, {type, payload}) => {
 				edit: payload,
 			}
 		case CLEAR_EDIT:
-			console.log(state);
 			return {
 				...state,
 				edit: null
@@ -55,6 +54,11 @@ export default (state, {type, payload}) => {
 				...state,
 				guests: [],
 				errors: payload
+			}
+		case CLEAR_GUESTS:
+			return {
+				...state,
+				guests: []
 			}
 		default:
 			return state;

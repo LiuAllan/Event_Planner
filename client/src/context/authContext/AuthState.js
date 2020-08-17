@@ -9,6 +9,7 @@ const initialState = {
 	userAuth: null,
 	errors: null,
 	user: null,
+	loading: true
 }
 
 const AuthState = ({children}) => {
@@ -113,6 +114,7 @@ const AuthState = ({children}) => {
 				userAuth: state.userAuth,
 				errors: state.errors,
 				user: state.user,
+				loading: state.loading,
 				registerUser,
 				loginUser,
 				logoutUser,

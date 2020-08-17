@@ -14,7 +14,7 @@ export default (state, action) => {
 			return {
 				...state,
 				userAuth: true,
-				errors: null
+				errors: null,
 			}
 		case 'FAIL_LOGIN':
 			return {
@@ -27,6 +27,7 @@ export default (state, action) => {
 			return {
 				...state,
 				userAuth: null,
+				loading: true,
 			}
 		case 'FAIL_REGISTER':
 			return {
@@ -49,6 +50,7 @@ export default (state, action) => {
 				...state,
 				user: action.payload,
 				userAuth: true,
+				loading: false,
 				errors: null
 			}
 		case ' AUTH_ERROR':

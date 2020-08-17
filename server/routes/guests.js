@@ -33,14 +33,14 @@ router.post('/', auth,
 	const { name, phone, dietary, isConfirmed } = req.body;
 
 	try {
-		let guest = new Guest({
+		const newGuest = new Guest({
 			user: req.user.id,
 			name,
 			phone,
 			dietary,
 			isConfirmed
 		})
-		await guest.save();
+		const guest = await newGuest.save();
 		res.json(guest);
 	}
 	catch(err) {
