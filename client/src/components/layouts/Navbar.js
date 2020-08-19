@@ -8,12 +8,14 @@ import StyledNavbar from './StyledNavbar';
 const Navbar = () => {
 
   const { logoutUser, clearError, userAuth, user } = useContext(AuthContext);
-  const { clearGuests } = useContext(GuestContext);
+  const { clearGuests, clearFilter, clearSearch } = useContext(GuestContext);
 
   const handleLogout = () => {
       logoutUser();
       clearError();
       clearGuests();
+      clearFilter();
+      clearSearch();
   }
 
 

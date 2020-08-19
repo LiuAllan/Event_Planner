@@ -1,4 +1,17 @@
-import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR, CLEAR_GUESTS } from '../types';
+import { 
+	TOGGLE_FILTER, 
+	SEARCH_GUEST, 
+	CLEAR_SEARCH, 
+	ADD_GUEST, 
+	REMOVE_GUEST, 
+	UPDATE_GUEST, 
+	EDIT_GUEST, 
+	CLEAR_EDIT, 
+	GET_GUESTS, 
+	GUESTS_ERROR, 
+	CLEAR_GUESTS,
+	CLEAR_FILTER,
+	 } from '../types';
 
 export default (state, {type, payload}) => {
 	switch(type) {
@@ -32,6 +45,11 @@ export default (state, {type, payload}) => {
 			return {
 				...state,
 				filterGuest: !state.filterGuest
+			}
+		case CLEAR_FILTER:
+			return {
+				...state,
+				filterGuest: false
 			}
 		case SEARCH_GUEST:
 			const reg = new RegExp(`${payload}`, 'gi')

@@ -1,7 +1,20 @@
 import React, { useReducer } from 'react';
 import guestContext from './guestContext';
 import guestReducer from './guestReducer';
-import { TOGGLE_FILTER, SEARCH_GUEST, CLEAR_SEARCH, ADD_GUEST, REMOVE_GUEST, UPDATE_GUEST, EDIT_GUEST, CLEAR_EDIT, GET_GUESTS, GUESTS_ERROR, CLEAR_GUESTS } from '../types';
+import { 
+	TOGGLE_FILTER, 
+	SEARCH_GUEST, 
+	CLEAR_SEARCH, 
+	ADD_GUEST, 
+	REMOVE_GUEST, 
+	UPDATE_GUEST, 
+	EDIT_GUEST, 
+	CLEAR_EDIT, 
+	GET_GUESTS, 
+	GUESTS_ERROR, 
+	CLEAR_GUESTS,
+	CLEAR_FILTER,
+	 } from '../types';
 import axios from 'axios';
 import setToken from '../../utils/setToken';
 
@@ -28,9 +41,7 @@ const GuestState = ({ children }) => {
 			}
 		}
 		try {
-			console.log(guest);
 			const res = await axios.post('/guests', guest, config)
-			console.log(res);
 			dispatch({
 				type: ADD_GUEST,
 				payload: res.data
@@ -127,6 +138,12 @@ const GuestState = ({ children }) => {
 		})
 	}
 
+	const clearFilter = () => {
+		dispatch({
+			type: CLEAR_FILTER
+		})
+	}
+
 	const searchGuest = (guest) => {
 		dispatch({
 			type: SEARCH_GUEST,
@@ -158,7 +175,7 @@ const GuestState = ({ children }) => {
 				clearEdit,
 				getGuests,
 				clearGuests,
-
+				clearFilter,
 			}}
 		>
 		{ children }

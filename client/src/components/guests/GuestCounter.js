@@ -19,7 +19,7 @@ const GuestCounter = () => {
       <table>
         <tbody>
           <tr>
-            <th>Guest</th>
+            <th>Guests</th>
             <th>Invited</th>
             <th>Attending</th>
           </tr>
