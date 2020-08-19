@@ -8,6 +8,17 @@ import Guests from '../guests/Guests'
 import Grid from '@material-ui/core/Grid';
 // Context
 import AuthContext from '../../context/authContext/authContext';
+// Styles
+import styled from 'styled-components';
+
+const StyledHome = styled.div`
+  .sub-heading {
+    border-bottom: 1px solid #d0d1d2;
+  }
+  .app-container {
+      overflow-x: hidden;
+  }
+`;
 
 const Home = () => {
 
@@ -19,28 +30,35 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="app-container">
-    <Grid container justify="center" spacing={1}>
-      <Grid item lg={2} md={3}>
-        <GuestFilter />
-      </Grid>
-      <Grid item lg={3} md={3}>
-        <GuestSearch />
-      </Grid> 
-    </Grid>
-      <div className="main">
-        <Grid container justify="center">
-          <Grid item lg={8} xs={8}>
-              <GuestCounter />
-          </Grid>
-          <Grid item lg={8} xs={8}>
-            <GuestForm />
-          </Grid>
-
+    <StyledHome>
+      <div className="app-container">
+      <Grid container direction="row" justify="flex-start" alignItems="baseline" spacing={4} className="sub-heading">
+        <Grid item xl={3}>
+          <GuestSearch />
         </Grid>
+        <Grid item xl={3}>
+          <GuestFilter />
+        </Grid>
+      </Grid>
+        <div className="main">
+          <Grid container
+            direction="row"
+            justify="center"
+            alignItems="baseline"
+            spacing={4}
+          >
+            <Grid item md={5} xs={12}>
+                <GuestCounter />
+            </Grid>
+            <Grid item md={5} xs={12}>
+              <GuestForm />
+            </Grid>
+
+          </Grid>
+        </div>
+        <Guests />
       </div>
-      <Guests />
-    </div>
+    </StyledHome>
   )
 }
 

@@ -8,7 +8,6 @@ const Guest = ({guest}) => {
   // console.log(name);
 
   const handleRemove = () => {
-    console.log(_id);
     removeGuest(_id);
   }
 

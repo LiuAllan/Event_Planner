@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/authContext/authContext';
 import GuestContext from '../../context/guestContext/guestContext';
 import { Link } from 'react-router-dom';
+// Styles
+import StyledNavbar from './StyledNavbar';
 
 const Navbar = () => {
 
@@ -41,16 +43,18 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar">
-      <div className="logo">
-        <h1><i className='fas fa-glass-cheers' />
-          Event Planner
-        </h1>
+    <StyledNavbar>
+      <div className="navbar">
+        <div className="logo">
+          <h1>
+            PlanRSVP
+          </h1>
+        </div>
+        <ul>
+          {userAuth ? userLinks : authLinks}
+        </ul>
       </div>
-      <ul>
-        {userAuth ? userLinks : authLinks}
-      </ul>
-    </div>
+    </StyledNavbar>
   )
 }
 

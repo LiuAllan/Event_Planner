@@ -4,20 +4,6 @@ import GuestContext from '../../context/guestContext/guestContext';
 const GuestForm = () => {
   const { addGuest, edit, updateGuest, clearEdit } = useContext(GuestContext);
 
-  useEffect(() => {
-    if(edit !== null) {
-      setGuest(edit)
-    }
-    else {
-      setGuest({
-        name: '',
-        phone: '',
-        diet: 'Non-Veg',
-      })
-    }
-
-  }, [edit])
-
   // initial state
   const [guest, setGuest] = useState({
     name: '',
@@ -27,6 +13,21 @@ const GuestForm = () => {
 
   // Destructure guest state
   const { name, phone, dietary } = guest;
+
+  useEffect(() => {
+    if(edit !== null) {
+      setGuest(edit)
+    }
+    else {
+      setGuest({
+        name: '',
+        phone: '',
+        dietary: 'Non-Veg',
+      })
+    }
+
+  }, [edit])
+
 
   const handleChange = (e) => {
     setGuest({
@@ -49,7 +50,7 @@ const GuestForm = () => {
     setGuest({
       name: '',
       phone: '',
-      diet: 'Non-Veg',
+      dietary: 'Non-Veg',
     })
   }
 
