@@ -35,6 +35,10 @@ const Login = (props) => {
 		clearError();
 	}
 
+	// temp
+	const handleGoogle = () => {
+		window.location.href = "http://localhost:5000/auth/google";
+	}
 
 	return (
 		<div className="login">
@@ -43,6 +47,11 @@ const Login = (props) => {
 				<input type="email" name="email" placeholder="Email" value={email} onChange={handleChange}/>
 				<input type="password" name="password" placeholder="Password" value={password} onChange={handleChange}/>
 				<input type="submit" value="Sign In" className="btn" />
+				
+				{/*<button className="btn-google" onClick={handleGoogle}>
+					<span><i className="fab fa-google"></i> Sign In with Google</span>
+				</button>
+			*/}
 			</form>
 			<div className="question">
 				{ errors !== null && <button className="danger">

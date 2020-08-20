@@ -456,6 +456,25 @@ cursor: pointer;
     background: rgb(107, 161, 197)
   }
 
+  .btn-google {
+    display: inline-block;
+    background: #DB4437;
+    color:var(--light-color);
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+    margin-top:1rem;
+    text-decoration: none;
+  }
+
+  .btn-google:hover {
+    opacity: 0.9;
+  }
+
+
   /* *******************************************************************/
  @media(max-width: 1300px){
   .main{
