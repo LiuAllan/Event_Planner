@@ -31,6 +31,7 @@ app.use(express.json({ extended: true }));
 // app.use(passport.initialize());
 // app.use(passport.session());
 
+
 // Router
 app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
