@@ -13,3 +13,8 @@ Features:
 - Expense tracker - TODO
 
 VISIT DEMO: https://sheltered-earth-21923.herokuapp.com/
+
+To run locally:
+1. cd to root folder
+2. npm install - to install dependencies
+3. npm run dev - will launch both the client and server concurrently. Server running on port 5000, Client running on port 3000.
