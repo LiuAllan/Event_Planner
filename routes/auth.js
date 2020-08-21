@@ -3,7 +3,7 @@ const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
-const passport = require('passport');
+// const passport = require('passport');
 
 // User Model
 const User = require('../models/User');
@@ -70,14 +70,14 @@ router.
 
 // Auth with Google
 // @path GET /auth/google
-router.
-	get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+// router.
+// 	get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-// @desc	Google auth callback
-// @route 	GET /auth/google/callback
-router.
-	get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), (req, res) => {
-	res.redirect('http://localhost:3000/')
-})
+// // @desc	Google auth callback
+// // @route 	GET /auth/google/callback
+// router.
+// 	get('/google/callback', passport.authenticate('google', { failureRedirect: '/'}), (req, res) => {
+// 	res.redirect('http://localhost:3000/')
+// })
 
 module.exports = router;
