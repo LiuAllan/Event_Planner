@@ -12,8 +12,6 @@ Features:
 - Register and login with Gmail - TODO
 - Expense tracker - TODO
 
-VISIT DEMO: https://sheltered-earth-21923.herokuapp.com/
-
 To run locally:
 1. cd to root folder
 2. npm install - to install dependencies
